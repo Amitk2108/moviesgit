@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchApiData } from "./utils/api";
 import { useSelector, useDispatch } from "react-redux";
-import { getApiConfiguration } from "./store/homeSlice";
+import { getApiConfiguration, getGenres } from "./store/homeSlice";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
@@ -13,10 +13,11 @@ import PageNotFound from "./pages/404/PageNotFound";
 
 function App() {
   const dispatch = useDispatch();
-  const { url } = useSelector((state) => state.home);
+  // const { url } = useSelector((state) => state.home);
 
   useEffect(() => {
     apiConfig();
+    genresCall();
   }, []);
 
   const apiConfig = () => {
@@ -31,6 +32,24 @@ function App() {
     });
   };
 
+  const genresCall = async () => {
+    let promises = [];
+    let endPoints = ["tv", "movie"];
+    let allGenres = {};
+
+    endPoints.forEach((url) => {
+      promises.push(fetchApiData(`/genre/${url}/list`));
+    });
+
+    const data = await Promise.all(promises);
+    console.log(data);
+    data.map(({ genres }) => {
+      return genres.map((item) => (allGenres[item.id] = item));
+    });
+
+    dispatch(getGenres(allGenres));
+  };
+
   return (
     <BrowserRouter>
       <Header />
@@ -41,7 +60,7 @@ function App() {
         <Route path="/explore/:mediaType" element={<Explore />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </BrowserRouter>
   );
 }

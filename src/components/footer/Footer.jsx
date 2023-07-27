@@ -5,6 +5,7 @@ import {
   FaInstagram,
   FaTwitter,
   FaLinkedin,
+  FaGithub,
 } from "react-icons/fa";
 
 import ContentWrapper from "../contentWrapper/ContentWrapper";
@@ -44,6 +45,15 @@ const Footer = () => {
               rel="noopener noreferrer"
             >
               <FaLinkedin />
+            </a>
+          </span>
+          <span className="icon">
+            <a
+              href="https://www.linkedin.com/in/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub />
             </a>
           </span>
         </div>

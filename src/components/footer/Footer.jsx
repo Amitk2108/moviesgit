@@ -10,7 +10,6 @@ import {
 
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 
-
 const Footer = () => {
   return (
     <footer className="footer">
@@ -23,12 +22,11 @@ const Footer = () => {
           <li className="menuItem">FAQ</li>
         </ul>
         <div className="infoText">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.
+          MoviesGit is an online database of information related to films,
+          television series, podcasts, home videos, video games, and streaming
+          content online - including cast, production crew and personal
+          biographies, plot summaries, trivia, ratings, and fan and critical
+          reviews.
         </div>
         <div className="socialIcons">
           <span className="icon">
@@ -41,9 +39,16 @@ const Footer = () => {
             <FaTwitter />
           </span>
           <span className="icon">
-            <FaLinkedin />
+            <a
+              href="https://www.linkedin.com/in/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin />
+            </a>
           </span>
         </div>
+        <div className="credit">Made By : Amit Kumar</div>
       </ContentWrapper>
     </footer>
   );

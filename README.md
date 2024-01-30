@@ -70,3 +70,7 @@ Technologies used in the project:
 *   React Router Dom
 *   Axios
 *   TMDB Api
+
+## :handshake: Contact
+
+Amit Kumar - [@linkdin_handle](https://www.linkedin.com/in/amit-ib/) - amitcoder98@gmail.com
